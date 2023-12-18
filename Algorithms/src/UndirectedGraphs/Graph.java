@@ -15,6 +15,22 @@ public class Graph {
 		initializeAdj();
 	}
 	
+	/**
+	 * This is a solution to exercise 4.1.3
+	 * @param g graph that needs to be copied
+	 */
+	public Graph(Graph g) {
+		this.v = g.V();
+		this.e = g.E();
+		this.adj = new ArrayList<LinkedList<Integer>>();
+		
+		for (int i = 0; i < v; i++) {
+			int adjIndex = i;
+			adj.add(new LinkedList<Integer>());
+			g.adj.get(i).forEach(e -> adj.get(adjIndex).add(e));
+		}
+	}
+	
 	public Graph(String path) {
 		File inputFile = new File(path);
 		if (!inputFile.exists()) {
@@ -41,6 +57,11 @@ public class Graph {
 	}
 	
 	public void addEdge(int a, int b) {
+		// disallowing self-loops and parallel edges is 4.1.5
+		// disallow self-loops
+		if (a==b) return;
+		// disallow parallel edges
+		if (adj.get(a).contains(b)) return;
 		adj.get(a).add(b);
 		adj.get(b).add(a);
 	}
