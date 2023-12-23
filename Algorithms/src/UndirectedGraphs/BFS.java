@@ -55,7 +55,6 @@ public class BFS {
 	
 	public int ditanceTo(int v) {
 		if (!marked[v]) return -1;
-		
 		return distance[v];
 	}
 }
