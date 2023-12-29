@@ -29,17 +29,14 @@ public class Edge implements Comparable<Edge>
 	
 	public int compareTo(Edge that)
 	{
-		int vertex1 = that.either();
-		int vertex2 = that.other(vertex1);
-		
-		if (vertex2 == this.other(vertex1) && vertex1 == this.other(vertex2)) return 0;
-		
-		return 1;
+		if (this.weight() > that.weight()) return 1;
+		else if (this.weight() < that.weight()) return -1;
+		else return 0;
 	}
 	
 	@Override
 	public String toString()
 	{
-		return String.format("Edge from %d to %d, with weight %f", this.v, this.w, this.weight);
+		return String.format("Edge from %d to %d, with weight %.2f", this.v, this.w, this.weight);
 	}
 }

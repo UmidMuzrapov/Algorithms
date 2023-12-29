@@ -15,12 +15,12 @@ public class EdgeWeightedGraph
 	public EdgeWeightedGraph(int v)
 	{
 		this.v =v;
+		this.e = 0;
 		initializeAdj();
 	}
 	
 	public EdgeWeightedGraph(String path)
 	{
-		initializeAdj();
 		readInStream(path);
 	}
 	
@@ -79,6 +79,7 @@ public class EdgeWeightedGraph
 			this.v = inStream.nextInt();
 			this.e = inStream.nextInt();
 			this.e = 0;
+			initializeAdj();
 			
 			while (inStream.hasNext())
 			{
