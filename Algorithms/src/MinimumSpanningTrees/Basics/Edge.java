@@ -12,8 +12,7 @@ public class Edge implements Comparable<Edge>
 		this.weight = weight;
 	}
 	
-	public double weight()
-	{
+	public double weight(){
 		return weight;
 	}
 	
