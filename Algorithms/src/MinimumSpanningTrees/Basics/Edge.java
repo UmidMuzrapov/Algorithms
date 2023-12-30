@@ -13,7 +13,7 @@ public class Edge implements Comparable<Edge>
 	}
 	
 	public double weight(){
-		return weight;
+	return weight;
 	}
 	
 	public int either()
