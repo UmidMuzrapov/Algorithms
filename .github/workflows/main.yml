@@ -18,3 +18,7 @@ jobs:
           install-path: ${{ github.workspace }} # optional
           version: latest # optional
           ignore-cached-install: false # optional
+      - name: Checkstyle for Java
+        # You may pin to the exact commit or the version.
+        # uses: dbelyaev/action-checkstyle@6765c03db05d6a4efa631bc05d7138448dd4d734
+        uses: dbelyaev/action-checkstyle@v1.2.0
