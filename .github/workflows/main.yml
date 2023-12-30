@@ -10,15 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Setup google-java-format
-        id: setup-google-java-format
-        uses: thecanadianroot/action-setup-google-java-format@v1
-        with:
-          token: ${{ github.token }} # optional
-          install-path: ${{ github.workspace }} # optional
-          version: latest # optional
-          ignore-cached-install: false # optional
-      - name: Checkstyle for Java
+      - name: Google Java Format
         # You may pin to the exact commit or the version.
-        # uses: dbelyaev/action-checkstyle@6765c03db05d6a4efa631bc05d7138448dd4d734
-        uses: dbelyaev/action-checkstyle@v1.2.0
+        # uses: axel-op/googlejavaformat-action@fe78db8a90171b6a836449f8d0e982d5d71e5c5a
+        uses: axel-op/googlejavaformat-action@v3.6.0
