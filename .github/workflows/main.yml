@@ -1,16 +1,24 @@
-name: first
-on: push
+name: Format Java Code
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  job1:
-    name: Check Code Quality
+  format-code:
     runs-on: ubuntu-latest
+
     steps:
-      - name: set up checkout
-        uses: actions/checkout@v2
-      - name: DesigniteJava
-        # You may pin to the exact commit or the version.
-        # uses: DesigniteTools/DJAction@5de0ca090d14125c6057ba4ec74563c1020ca372
-        uses: DesigniteTools/DJAction@v1.0.1
-    
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Prettier Java Format
+      uses: tsar-boomba/prettier-java-format-action@main
+      with:
+        prettier-args: '--tab-width 4  --write'  # See: https://prettier.io/docs/en/options.html
+        files: '**/*.java'
+        commit: 'true'
+        github-username: 'github-actions'
+        commit-message: 'Format Java Code'
                 
