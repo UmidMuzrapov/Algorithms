@@ -4,13 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class Sample
-{
+class Sample {
 
-	@Test
-	void test()
-	{
-		assertEquals(1,1);
-	}
-
+  @Test
+  void test() {
+    assertEquals(1, 1);
+  }
 }
