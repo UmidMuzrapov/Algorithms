@@ -1,29 +1,29 @@
-name: Format
+name: Java CI
 
 on: [push]
 
 jobs:
+  build:
 
-  formatting:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3 # v2 minimum required
-      - uses: axel-op/googlejavaformat-action@v3
-        with:
-          args: "--skip-sorting-imports --replace"
-          # Recommended if you use MacOS:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-  testing:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3 # v2 minimum required
-      - name: Setup Java JDK
-        uses: actions/setup-java@v4.0.0
-        with:
-          distribution: oracle
-          java-version: 18
-      - run: |
-           cd ./Algorithms/Algorithms
-           sudo apt install aptitude
-           sudo aptitude install junit
-           ls -a           
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: 11  # Change this to your desired Java version
+
+    - name: Compile and run tests
+      run: |
+        cd ./Algorithms/Algorithms  
+
+        # Compile your Java classes
+        javac -cp .:junit.jar.java  ./src/tests/Sample.java 
+
+        # Run JUnit tests
+        java -cp .:junit.jar:hamcrest.jar org.junit.runner.JUnitCore ./src/tests/Sample
+
