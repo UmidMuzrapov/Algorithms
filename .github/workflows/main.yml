@@ -19,7 +19,8 @@ jobs:
 
     - name: Compile and run tests
       run: |
-        cd ./Algorithms/Algorithms  
+        ls -a
+        cd ./Algorithms
 
         # Compile your Java classes
         javac -cp .:junit.jar.java  ./src/tests/Sample.java 
