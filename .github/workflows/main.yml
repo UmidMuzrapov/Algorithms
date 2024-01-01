@@ -23,4 +23,7 @@ jobs:
           distribution: oracle
           java-version: 18
       - run: |
-           ls -a
+           cd ./Algorithms/Algorithms
+           sudo apt install aptitude
+           sudo aptitude install junit
+           ls -a           
