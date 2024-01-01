@@ -14,17 +14,5 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v2
       with:
-        distribution: 'adopt'
-        java-version: 11  # Change this to your desired Java version
-
-    - name: Compile and run tests
-      run: |
-        ls -a
-        cd ./Algorithms
-
-        # Compile your Java classes
-        javac -cp .:junit.jar.java  ./src/tests/Sample.java 
-
-        # Run JUnit tests
-        java -cp .:junit.jar:hamcrest.jar org.junit.runner.JUnitCore ./src/tests/Sample
-
+        distribution: oracle
+        java-version: 18  # Change this to your desired Java version
