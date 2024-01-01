@@ -1,18 +1,23 @@
 name: Java CI
-
 on: [push]
 
 jobs:
-  build:
 
+  formatting:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'oracle'
-        java-version: 18  # Change this to your desired Java version
+      - uses: actions/checkout@v3 # v2 minimum required
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--skip-sorting-imports --replace"
+          # Recommended if you use MacOS:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # v2 minimum required
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.0.0
+        with:
+          distribution: oracle
+          java-version: 18
