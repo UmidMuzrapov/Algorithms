@@ -14,7 +14,7 @@ jobs:
           # Recommended if you use MacOS:
           github-token: ${{ secrets.GITHUB_TOKEN }}
   testing:
-    runs-on: ubunti-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3 # v2 minimum required
       - name: Setup Java JDK
